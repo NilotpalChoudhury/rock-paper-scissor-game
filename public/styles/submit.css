@@ -1,0 +1,124 @@
+h1 {
+  text-align: center;
+  color: aliceblue;
+  font-size: 300%;
+}
+
+body {
+  margin: 0;
+  background-color: black;
+  background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1462889/pat-back.svg");
+  background-repeat: repeat;
+}
+
+a {
+  text-decoration: none;
+  color: aliceblue;
+  transition: background-color 0.3s ease; /* Add a smooth transition */
+}
+
+button {
+  cursor: pointer;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: rgb(2, 81, 101); /* Green */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  display: inline-block;
+  transition: background-color 0.3s ease; /* Add a smooth transition */
+}
+
+a:hover,
+button:hover {
+  background-color: beige;
+  color: rgb(2, 81, 101);
+}
+
+.result {
+  display: flex;
+}
+
+#user,
+#me {
+  max-width: 49%; /* Ensure the images don't exceed their container */
+}
+
+/* Optional: Add some margin if needed */
+#user {
+  margin-right: 10px;
+}
+
+.text {
+  font-size: larger;
+  margin-top: 1%;
+  color: aliceblue;
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.finaltext {
+  margin-top: 1%;
+  font-size: xx-large;
+  color: bisque;
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.restart {
+  position: fixed;
+  left: 2%;
+  top: 3%;
+}
+
+@media (min-width: 769px) and (max-width: 1200px) {
+  h1 {
+    font-size: 200%;
+    margin-top: 7%;
+    margin-bottom: 12%;
+  }
+  .usertext,
+  .mytext {
+    margin-bottom: 5%; /* Adjust the value as needed */
+    margin-top: 7%;
+    font-size: large;
+  }
+  .finaltext {
+    font-size: x-large;
+  }
+}
+
+@media (max-width: 768px) {
+  .usertext,
+  .mytext {
+    margin-bottom: 15%; /* Adjust the value as needed */
+    margin-top: 10%;
+    font-size: medium;
+  }
+  .finaltext {
+    font-size: large;
+  }
+
+  h1 {
+    font-size: 150%;
+    margin-top: 10%;
+    margin-bottom: 15%;
+  }
+  button {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+  }
+
+  .restart {
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 10%;
+  }
+}

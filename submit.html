@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./public/styles/submit.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1>THE ROCK PAPER SCISSOR GAME!</h1>
+
+    <div class="result">
+        <img id="user" src="./public/images/rock.jpg">
+        <img id="me" src="./public/images/paper.jpg">
+    </div>
+    <div class="text">
+        <div class="usertext">YOU CHOSE THIS</div>
+        <div class="mytext">I CHOSE THIS</div>
+    </div>
+    <div class="finaltext">
+        SO I WON!
+    </div>
+    <div class="restart"><button><a href="./index.html">RESTART</a></button></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="./index.js" charset="UTF-8"></script>
+    <script>
+
+        $(document).ready(function () {
+            // Extract selected option from URL parameters
+            var urlParams = new URLSearchParams(window.location.search);
+            var selectedOption = urlParams.get('selectedOption');
+
+            //my selected option\
+            var choices = ["rock", "paper", "scissor"];
+            var random = Math.floor(Math.random() * 3);
+            var computerChoice = choices[random];
+
+            // Call function to change images based on the selected option
+            changeImages(selectedOption, computerChoice);
+        });
+
+        // Function to change images based on the selected option
+        function changeImages(selectedOption, computerChoice) {
+            // Example: Change the src attribute of the user image based on the selected option
+            $("#user").attr("src", "./public/images/" + selectedOption.toLowerCase() + ".jpg");
+
+            $("#me").attr("src", "./public/images/" + computerChoice.toLowerCase() + ".jpg");
+
+            // Example: Change the result text based on the game outcome
+            var resultText = determineResult(selectedOption, computerChoice);
+            $(".finaltext").text(resultText);
+        }
+
+        // Function to determine the result text based on user's and computer's choices
+        function determineResult(userChoice, computerChoice) {
+            //logic to determine the game outcome based on user's and computer's choices
+            if ((userChoice === "rock" && computerChoice === "scissor") || (userChoice === "paper" && computerChoice === "rock") || (userChoice === "scissor" && computerChoice === "paper")) {
+                return "CONGRATS! YOU WON";
+            }
+            else if (userChoice === computerChoice) {
+                return "IT'S A TIE!";
+            }
+            else {
+                return "HAHA! YOU LOSE"
+            }
+        }
+    </script>
+</body>
+</html>
